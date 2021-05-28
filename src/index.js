@@ -7,7 +7,7 @@ import App from 'components/App';
 
 
 ReactDOM.render(
-    <Root store={createStore(reducers, {})}>
+    <Root>
        <App/>
     </Root>, 
     document.querySelector('#root')
