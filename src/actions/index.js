@@ -9,7 +9,7 @@ export function saveComment(comment){
     }
 };
 
-export function fetch_comments (){
+export function fetchComments (){
     const response = axios.get('http://jsonplaceholder.typicode.com/comments')
     return{
         type: FETCH_COMMENTS,
