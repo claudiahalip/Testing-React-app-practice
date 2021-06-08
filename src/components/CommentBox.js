@@ -6,6 +6,26 @@ class CommentBox extends Component {
     state = {
         comment: ''
     };
+
+
+    //our component just got render
+    componentDidMount(){
+       this.shouldNavigateAway()
+    }
+
+    
+
+    //our component just did update
+    componentDidUpdate(){
+        this.shouldNavigateAway()
+    }
+
+
+    shouldNavigateAway(){
+        if(!this.props.auth){
+            this.props.history.push('/')
+        }
+    }
     
     handleChange = event => {
         this.setState({
@@ -35,5 +55,9 @@ class CommentBox extends Component {
     }
 
 }
-export default connect(null, actions)( CommentBox);
+
+function mapStateToProps(state){
+    return { auth: state.auth };
+}
+export default connect(mapStateToProps, actions)( CommentBox);
 
